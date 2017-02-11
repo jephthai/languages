@@ -1,0 +1,54 @@
+;;
+;; This program prints the first 10 factorials
+;;
+
+; here's a crazy way to do constants!
+
+define min 0  end
+define max 50 end
+
+define toosmall?
+  dup 1 < 
+end
+
+define decrement
+  1 - 
+end
+
+define iterate*
+  swap over * swap
+end
+
+define factorial
+  toosmall?       
+  [ drop 1 ]
+  [ dup decrement dup
+    [ iterate* decrement ] times
+    drop
+  ] if 
+end
+
+define announce
+  dup print "! = " print 
+end    
+
+define banner
+  newline
+  "Listing first " print
+  max              print
+  " factorials:"   print
+  2 [ newline ] times
+end
+
+define main
+  banner
+  min max
+  [ announce
+    dup factorial
+    print newline 1 +
+  ] times 
+  drop
+  newline
+end
+
+main

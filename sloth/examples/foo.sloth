@@ -1,0 +1,8 @@
+0 6
+[ dup print " is " print 
+  dup 2 % 0 =
+  [ "Even!" print newline ]
+  [ "Odd!"  print newline ]
+  if
+  1 + 
+] times
